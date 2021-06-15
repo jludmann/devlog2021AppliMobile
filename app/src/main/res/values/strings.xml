@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Gestion de Compte</string>
+    <string name="url_spring">http://192.168.43.92:8080/</string>
+    <string name="login">Login …</string>
+    <string name="password">Password …</string>
+    <string name="connexion">Connexion</string>
+</resources>
