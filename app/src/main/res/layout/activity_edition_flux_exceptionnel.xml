@@ -4,55 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.EditionCompteActivity">
+    tools:context=".view.EditionFluxExceptionnelActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_ajouterFluxExceptionnel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_anchor="@id/bottomAppBar3"
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar2"
+        android:id="@+id/bottomAppBar3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:backgroundTint="@color/purple_500" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_ajouterCompte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:layout_anchor="@id/bottomAppBar2"
-        app:srcCompat="@android:drawable/ic_menu_save" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText_nomCompte"
-            android:layout_width="wrap_content"
+            android:id="@+id/editText_nomFluxExceptionnel"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Nom du Compte"
+            android:hint="Libellé"
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText_solde"
-            android:layout_width="wrap_content"
+            android:id="@+id/editText_dateFluxExceptionnel"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Solde initial"
-            android:inputType="numberDecimal" />
+            android:inputType="date" />
+
+        <CalendarView
+            android:id="@+id/calendarView_dateFluxExceptionnel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <EditText
-            android:id="@+id/editText_seuilAlerte"
-            android:layout_width="wrap_content"
+            android:id="@+id/editText_montantFluxExceptionnel"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Seuil d'alerte"
+            android:hint="Montant"
             android:inputType="numberDecimal" />
 
     </LinearLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

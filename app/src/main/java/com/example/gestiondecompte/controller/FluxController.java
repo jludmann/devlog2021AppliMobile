@@ -6,6 +6,8 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.example.gestiondecompte.R;
 import com.example.gestiondecompte.model.Compte;
+import com.example.gestiondecompte.model.Flux;
+import com.example.gestiondecompte.model.FluxExceptionnel;
 import com.example.gestiondecompte.utils.RequestManager;
 import com.example.gestiondecompte.utils.StringRequestWithToken;
 
@@ -15,17 +17,17 @@ import org.json.JSONObject;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 
-public class CompteController {
+public class FluxController {
 
-    private static CompteController instance = null;
+    private static FluxController instance = null;
 
-    private CompteController() {
+    private FluxController() {
     }
 
-    public static CompteController getInstance() {
+    public static FluxController getInstance() {
 
         if(instance == null) {
-            instance = new CompteController();
+            instance = new FluxController();
         }
 
         return instance;
@@ -39,21 +41,20 @@ public class CompteController {
         void onErreurSauvegarde(String messageErreur);
     }
 
-    public void sauvegarder(
+    public void sauvegarderFluxExceptionnel(
             Context context,
-            Compte compte,
+            FluxExceptionnel flux,
             SuccesEcouteur ecouteurSucces,
             ErreurEcouteur ecouteurErreur) {
 
         StringRequestWithToken stringRequest = new StringRequestWithToken (
                 context,
-                Request.Method.POST,  context.getResources().getString(R.string.url_spring) + "user/compte",
+                Request.Method.POST,  context.getResources().getString(R.string.url_spring) + "user/fluxExceptionnel",
                 token -> {
                     ecouteurSucces.onSuccesSauvegarde();
                 },
                 error -> {
                     ecouteurErreur.onErreurSauvegarde("Impossible de sauvegarder");
-                    error.printStackTrace();
                 }
         ){
 
@@ -63,7 +64,7 @@ public class CompteController {
 
                     JSONObject jsonBody;
 
-                        jsonBody = compte.toJson();
+                        jsonBody = flux.toJson();
 
                     return jsonBody.toString().getBytes(StandardCharsets.UTF_8);
 

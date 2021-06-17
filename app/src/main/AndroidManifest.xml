@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GestionDeCompte"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.EditionCompteActivity"></activity>
+        <activity android:name=".view.EditionFluxExceptionnelActivity"></activity>
+        <activity android:name=".view.InscriptionActivity" />
+        <activity android:name=".view.EditionCompteActivity" />
         <activity android:name=".view.CompteActivity" />
         <activity android:name=".view.LoginActivity">
             <intent-filter>

@@ -17,6 +17,7 @@ public class EditionCompteActivity extends AppCompatActivity {
 
     EditText editTextNomCompte;
     EditText editTextSolde;
+    EditText editTextSeuilAlerte;
     Compte compte;
     FloatingActionButton fabEditionCompte;
 
@@ -35,6 +36,7 @@ public class EditionCompteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edition_compte);
         editTextNomCompte = findViewById(R.id.editText_nomCompte);
         editTextSolde = findViewById(R.id.editText_solde);
+        editTextSeuilAlerte = findViewById(R.id.editText_seuilAlerte);
 
         fabEditionCompte = findViewById(R.id.fab_ajouterCompte);
 
@@ -42,6 +44,7 @@ public class EditionCompteActivity extends AppCompatActivity {
 
             compte.setNom(editTextNomCompte.getText().toString());
             compte.setSolde(Double.parseDouble(editTextSolde.getText().toString()));
+            compte.setSeuilAlerte(Double.parseDouble(editTextSeuilAlerte.getText().toString()));
 
             CompteController.getInstance().sauvegarder(
                     this,

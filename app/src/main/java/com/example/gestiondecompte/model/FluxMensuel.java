@@ -21,12 +21,15 @@ public class FluxMensuel extends Flux{
     }
 
     @Override
-    public JSONObject toJson() throws JSONException {
+    public JSONObject toJson() throws JSONException, ParseException {
         JSONObject jsonFlux = new JSONObject();
 
         jsonFlux.put("id", this.getId());
+        jsonFlux.put("nom", super.getNom());
+        jsonFlux.put("montant", super.getMontant());
         jsonFlux.put("jourDuMois", this.getJourDuMois());
         jsonFlux.put("dateFin", this.getDateFin());
+        jsonFlux.put("compte", getCompte().toJson());
 
         return jsonFlux;
     }

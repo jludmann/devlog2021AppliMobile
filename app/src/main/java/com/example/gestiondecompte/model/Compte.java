@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Compte implements Serializable {
 
-    private int id;
+    private Integer id;
     private String nom;
     private double solde;
     private List<Flux> listeFlux = new ArrayList<>();
@@ -22,11 +22,11 @@ public class Compte implements Serializable {
     }
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -81,7 +81,7 @@ public class Compte implements Serializable {
         }
     }
 
-    public JSONObject toJson() throws JSONException {
+    public JSONObject toJson() throws JSONException, ParseException {
         JSONObject jsonCompte = new JSONObject();
 
         jsonCompte.put("id", this.getId());

@@ -5,10 +5,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.text.ParseException;
 
 public abstract class Flux implements Serializable {
 
-    private int id;
+    private Integer id;
+    private Compte compte;
     private String nom;
     private double montant;
 
@@ -18,11 +20,23 @@ public abstract class Flux implements Serializable {
         montant = jsonFlux.getDouble("montant");
     }
 
-    public int getId() {
+    public Flux() {
+
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -42,5 +56,5 @@ public abstract class Flux implements Serializable {
         this.montant = montant;
     }
 
-    public abstract JSONObject toJson() throws JSONException;
+    public abstract JSONObject toJson() throws JSONException, ParseException;
 }

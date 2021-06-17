@@ -19,12 +19,25 @@ public class FluxExceptionnel extends Flux {
         dateFlux = (Date) format.parse((String) jsonFlux.get("dateFlux"));
     }
 
+    public FluxExceptionnel() {
+        super();
+    }
+
     @Override
-    public JSONObject toJson() throws JSONException {
+    public JSONObject toJson() throws JSONException, ParseException {
         JSONObject jsonFlux = new JSONObject();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         jsonFlux.put("id", this.getId());
-        jsonFlux.put("dateFlux", this.getDateFlux());
+        jsonFlux.put("nom", super.getNom());
+        jsonFlux.put("montant", super.getMontant());
+        jsonFlux.put("dateFlux", format.format(this.getDateFlux()));
+
+        for(Flux flux : getCompte().getListeFlux()){
+            flux.setCompte(getCompte());
+        }
+
+        jsonFlux.put("compte", getCompte().toJson());
 
         return jsonFlux;
     }

@@ -17,6 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextLogin;
     private EditText editTextPassword;
     private Button buttonConnexion;
+    private Button buttonInscription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextLogin = findViewById(R.id.editText_pseudo);
         editTextPassword = findViewById(R.id.editText_password);
         buttonConnexion = findViewById(R.id.button_connexion);
+        buttonInscription = findViewById(R.id.button_inscription);
         init();
     }
 
@@ -39,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(this,CompteActivity.class));
                     }
             );
+        });
+
+        this.buttonInscription.setOnClickListener((View v) -> {
+            startActivity(new Intent(this, InscriptionActivity.class));
         });
     }
 }

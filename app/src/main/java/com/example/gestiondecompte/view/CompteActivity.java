@@ -38,7 +38,7 @@ public class CompteActivity extends AppCompatActivity {
                                     compteClique -> {
                                         Intent intent = new Intent(
                                                 this,
-                                                CompteActivity.class);
+                                                EditionFluxExceptionnelActivity.class);
 
                                         intent.putExtra("compte", compteClique);
                                         startActivity(intent);
